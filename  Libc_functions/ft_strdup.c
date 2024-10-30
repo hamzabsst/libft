@@ -1,0 +1,40 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hbousset <hbousset@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/26 11:27:05 by hbousset          #+#    #+#             */
+/*   Updated: 2024/10/29 14:29:42 by hbousset         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include"libft.h"
+
+char	*ft_strdup(const char *s)
+{
+	size_t	i;
+	size_t	size;
+	char	*results;
+
+	size = ft_strlen(s);
+	results = (char *) malloc((size + 1) * sizeof(char));
+	if (!results)
+		return (NULL);
+	i = 0;
+	while (s[i])
+	{
+		results[i] = s[i];
+		i++;
+	}
+	results[i] = '\0';
+	return (results);
+}
+/*#include <stdio.h>
+int main()
+{
+	char *str = "";
+	char *c = ft_strdup(str);
+	printf("%s", c);
+}*/
