@@ -6,19 +6,13 @@
 /*   By: hbousset <hbousset@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 14:08:13 by hbousset          #+#    #+#             */
-/*   Updated: 2024/10/30 14:46:12 by hbousset         ###   ########.fr       */
+/*   Updated: 2024/11/01 14:54:50 by hbousset         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-// Determine the Number of Substrings
-// Allocate Memory for the Array of Strings
-// Extract Each Substring
-// Allocate and Copy the Substring
-// Store the Pointer in the Array
-// Add a NULL Pointer at the End
-// Free Memory on Allocation Failure
-int	sepcounter(const char *s, char c)
+
+int	count_word(char const *s, char c)
 {
 	int	i;
 	int	counter;
@@ -27,40 +21,78 @@ int	sepcounter(const char *s, char c)
 	counter = 0;
 	while (s[i])
 	{
-		if (s[i] == c)
+		if (s[i] != c && (s[i - 1] == c || i == 0))
 			counter++;
 		i++;
 	}
 	return (counter);
 }
-int	strcounter(char const *s, char c)
+
+char	*ft_strndup(const char *s, int size)
+{
+	char	*copy;
+
+	copy = malloc(size + 1);
+	if (!copy)
+		return (NULL);
+	ft_strlcpy(copy, s, size + 1);
+	return (copy);
+}
+
+void	ft_free(char **arr)
 {
 	int	i;
-	int	counter;
 
 	i = 0;
-	counter = 0;
-	while (s[i])
+	while (arr[i])
 	{
-		if(s[i] != c && (s[i - 1] == c || i == 0))
-			counter++;
+		free(arr[i]);
 		i++;
 	}
-	return (counter);
+	free(arr);
 }
+
 char	**ft_split(char const *s, char c)
 {
 	char	**res;
-	int		size;
+	int		i;
+	int		index;
+	int		start;
 
-	size = ftstrlen(s) - sepcounter(s, c);
-
-	res = malloc(size * (strcounter(s, c) + 1));
-	if (!res)
+	res = malloc((count_word(s, c) + 1) * sizeof(char *));
+	if (!s || !(res))
 		return (NULL);
-
+	i = 0;
+	index = 0;
+	while (s[i])
+	{
+		while (s[i] == c)
+			i++;
+		start = i;
+		while (s[i] && s[i] != c)
+			i++;
+		if (i > start)
+		{
+			res[index] = ft_strndup(s + start, i - start);
+			index++;
+		}
+	}
+	res[index] = NULL;
+	return (res);
 }
-// int main()
-// {
-// 	printf("%d", strcounter(" hamza  is   ", 32));
-// }
+/*#include <stdio.h>
+int	main(void)
+{
+	int		i;
+	char	**words = ft_split("pe pe p epe", ' ');
+
+	i = 0;
+	while (words[i])
+	{
+		printf("%s", words[i]);
+		free(words[i]);
+		i++;
+	}
+	free(words);
+	return (0);
+}*/
