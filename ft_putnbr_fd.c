@@ -1,35 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hbousset <hbousset@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/22 23:40:19 by hbousset          #+#    #+#             */
-/*   Updated: 2024/11/02 20:43:41 by hbousset         ###   ########.fr       */
+/*   Created: 2024/11/02 11:53:17 by hbousset          #+#    #+#             */
+/*   Updated: 2024/11/02 13:44:30 by hbousset         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *s, int c, size_t n)
+void	ft_putnbr_fd(int n, int fd)
 {
-	size_t			i;
-	unsigned char	*ptr;
-
-	i = 0;
-	ptr = (char *)s;
-	while (i < n)
+	if (n == -2147483648)
+		write(fd, "-2147483648", 11);
+	else if (n < 0)
 	{
-		ptr[i] = (unsigned char)c;
-		i++;
+		n = -n;
+		ft_putchar_fd('-', fd);
+		ft_putnbr_fd(n, fd);
 	}
-	return (s);
+	else if (n > 9)
+	{
+		ft_putnbr_fd(n / 10, fd);
+		ft_putchar_fd((n % 10) + '0', fd);
+	}
+	if (n >= 0 && n <= 9)
+	{
+		n = n + 48;
+		ft_putchar_fd(n, fd);
+	}
 }
 /* int main()
 {
-	char str[15] = "jfjfnfg";
-    //memset(str + 2, '.', 8*sizeof(char));
-	ft_memset(str + 2, -158, 8*sizeof(char));
-    printf("%s", str);
+	ft_putnbr_fd(123, 1);
 } */

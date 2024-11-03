@@ -1,35 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hbousset <hbousset@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/22 23:40:19 by hbousset          #+#    #+#             */
-/*   Updated: 2024/11/02 20:43:41 by hbousset         ###   ########.fr       */
+/*   Created: 2024/11/02 11:49:53 by hbousset          #+#    #+#             */
+/*   Updated: 2024/11/02 22:02:44 by hbousset         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *s, int c, size_t n)
+void	ft_putstr_fd(char *s, int fd)
 {
-	size_t			i;
-	unsigned char	*ptr;
+	int	i;
 
+	if (fd < 0 || !s)
+		return ;
 	i = 0;
-	ptr = (char *)s;
-	while (i < n)
+	while (s[i])
 	{
-		ptr[i] = (unsigned char)c;
+		write(fd, &s[i], 1);
 		i++;
 	}
-	return (s);
 }
-/* int main()
+ int main()
 {
-	char str[15] = "jfjfnfg";
-    //memset(str + 2, '.', 8*sizeof(char));
-	ft_memset(str + 2, -158, 8*sizeof(char));
-    printf("%s", str);
-} */
+	ft_putstr_fd("hamza", 1);
+}

@@ -6,7 +6,7 @@
 /*   By: hbousset <hbousset@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 14:08:13 by hbousset          #+#    #+#             */
-/*   Updated: 2024/11/01 14:54:50 by hbousset         ###   ########.fr       */
+/*   Updated: 2024/11/02 21:19:19 by hbousset         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,19 +37,6 @@ char	*ft_strndup(const char *s, int size)
 		return (NULL);
 	ft_strlcpy(copy, s, size + 1);
 	return (copy);
-}
-
-void	ft_free(char **arr)
-{
-	int	i;
-
-	i = 0;
-	while (arr[i])
-	{
-		free(arr[i]);
-		i++;
-	}
-	free(arr);
 }
 
 char	**ft_split(char const *s, char c)

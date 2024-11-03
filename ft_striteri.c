@@ -6,7 +6,7 @@
 /*   By: hbousset <hbousset@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 10:29:34 by hbousset          #+#    #+#             */
-/*   Updated: 2024/11/01 15:02:45 by hbousset         ###   ########.fr       */
+/*   Updated: 2024/11/02 10:21:07 by hbousset         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,26 @@
 
 void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	size_t	size;
 	int		i;
-	char	*res;
 
 	i = 0;
-	res = malloc(size + 1);
-	if (!s || !res)
-		return (NULL);
-
+	while (s[i])
+	{
+		f(i, &s[i]);
+		i++;
+	}
 }
+
+/* void capitalize(unsigned int i, char *c)
+{
+	i = 0;
+	if (c[i] >= 'a' && c[i] <= 'z')
+		c[i] = c[i] - 32;
+}
+
+int main()
+{
+	char	s[] = "aji l bocal";
+	ft_striteri(s, capitalize);
+	printf("%s",s);
+} */

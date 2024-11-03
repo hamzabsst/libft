@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbousset <hbousset <marvin@42.fr>>         +#+  +:+       +#+        */
+/*   By: hbousset <hbousset@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 10:47:59 by hbousset          #+#    #+#             */
-/*   Updated: 2024/10/31 11:02:03 by hbousset         ###   ########.fr       */
+/*   Updated: 2024/11/02 20:38:55 by hbousset         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,8 @@ char	*ft_itoa(int n)
 	}
 	return (res);
 }
-/*int main()
+/* int main()
 {
-	printf("%s",ft_itoa(125666));
-}*/
+	int n = 0500;
+	printf("%d",n);
+} */

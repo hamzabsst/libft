@@ -1,35 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hbousset <hbousset@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/22 23:40:19 by hbousset          #+#    #+#             */
-/*   Updated: 2024/11/02 20:43:41 by hbousset         ###   ########.fr       */
+/*   Created: 2024/11/02 20:03:04 by hbousset          #+#    #+#             */
+/*   Updated: 2024/11/02 21:58:26 by hbousset         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *s, int c, size_t n)
+void	ft_putendl_fd(char *s, int fd)
 {
-	size_t			i;
-	unsigned char	*ptr;
+	int	i;
 
-	i = 0;
-	ptr = (char *)s;
-	while (i < n)
-	{
-		ptr[i] = (unsigned char)c;
-		i++;
-	}
-	return (s);
+	if (fd < 0)
+		return ;
+	ft_putstr_fd(s, fd);
+	ft_putchar_fd('\n', fd);
 }
 /* int main()
 {
-	char str[15] = "jfjfnfg";
-    //memset(str + 2, '.', 8*sizeof(char));
-	ft_memset(str + 2, -158, 8*sizeof(char));
-    printf("%s", str);
+	ft_putendl_fd("hamza", 1);
 } */
