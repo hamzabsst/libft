@@ -1,31 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hbousset <hbousset@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/02 11:49:53 by hbousset          #+#    #+#             */
-/*   Updated: 2024/11/02 22:02:44 by hbousset         ###   ########.fr       */
+/*   Created: 2024/11/03 17:19:55 by hbousset          #+#    #+#             */
+/*   Updated: 2024/11/03 17:24:10 by hbousset         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr_fd(char *s, int fd)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *))
 {
-	int	i;
 
-	if (fd < 0 || !s)
-		return ;
-	i = 0;
-	while (s[i])
-	{
-		write(fd, &s[i], 1);
-		i++;
-	}
-}
- int main()
-{
-	ft_putstr_fd("hamza", 1);
 }
