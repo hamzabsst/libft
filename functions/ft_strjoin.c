@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbousset <hbousset <marvin@42.fr>>         +#+  +:+       +#+        */
+/*   By: hbousset <hbousset@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 11:59:09 by hbousset          #+#    #+#             */
 /*   Updated: 2024/10/31 11:02:37 by hbousset         ###   ########.fr       */

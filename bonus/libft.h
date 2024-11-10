@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbousset <hbousset@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hbousset <hbousset@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 15:54:37 by hbousset          #+#    #+#             */
-/*   Updated: 2024/11/03 16:20:57 by hbousset         ###   ########.fr       */
+/*   Updated: 2024/11/09 12:43:08 by hbousset         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ typedef struct s_list
 }						t_list;
 
 // Linked List Functions
-t_list					*ft_lstnew(void const *content);
+t_list					*ft_lstnew(void *content);
 void					ft_lstadd_front(t_list **alst, t_list *new);
 int						ft_lstsize(t_list *lst);
 t_list					*ft_lstlast(t_list *lst);

@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbousset <hbousset <marvin@42.fr>>         +#+  +:+       +#+        */
+/*   By: hbousset <hbousset@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/26 09:27:05 by hbousset          #+#    #+#             */
 /*   Updated: 2024/10/31 11:02:06 by hbousset         ###   ########.fr       */

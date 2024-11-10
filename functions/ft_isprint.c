@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbousset <hbousset <marvin@42.fr>>         +#+  +:+       +#+        */
+/*   By: hbousset <hbousset@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 16:44:19 by hbousset          #+#    #+#             */
 /*   Updated: 2024/10/31 11:02:00 by hbousset         ###   ########.fr       */

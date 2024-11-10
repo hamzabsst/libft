@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbousset <hbousset <marvin@42.fr>>         +#+  +:+       +#+        */
+/*   By: hbousset <hbousset@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 15:46:25 by hbousset          #+#    #+#             */
 /*   Updated: 2024/10/31 11:03:01 by hbousset         ###   ########.fr       */
