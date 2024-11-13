@@ -16,8 +16,6 @@ void	*ft_calloc(size_t nmemb, size_t size)
 {
 	char	*results;
 
-/* 	if (nmemb != 0 && size > SIZE_MAX / nmemb)
-		return (NULL); */
 	results = malloc(nmemb * size);
 	if (!results)
 		return (NULL);
@@ -42,3 +40,5 @@ int main()
 	free(arr);
 	return 0;
 }*/
+/* 	if (nmemb != 0 && size > SIZE_MAX / nmemb)
+		return (NULL); */

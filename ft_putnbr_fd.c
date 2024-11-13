@@ -6,7 +6,7 @@
 /*   By: hbousset <hbousset@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 11:53:17 by hbousset          #+#    #+#             */
-/*   Updated: 2024/11/02 13:44:30 by hbousset         ###   ########.fr       */
+/*   Updated: 2024/11/13 12:25:28 by hbousset         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	ft_putnbr_fd(int n, int fd)
 		ft_putnbr_fd(n / 10, fd);
 		ft_putchar_fd((n % 10) + '0', fd);
 	}
-	if (n >= 0 && n <= 9)
+	else
 	{
 		n = n + 48;
 		ft_putchar_fd(n, fd);
@@ -35,5 +35,5 @@ void	ft_putnbr_fd(int n, int fd)
 }
 /* int main()
 {
-	ft_putnbr_fd(123, 1);
+	ft_putnbr_fd(-5, 2);
 } */

@@ -6,7 +6,7 @@
 /*   By: hbousset <hbousset@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/03 17:19:47 by hbousset          #+#    #+#             */
-/*   Updated: 2024/11/13 12:00:48 by hbousset         ###   ########.fr       */
+/*   Updated: 2024/11/13 12:08:07 by hbousset         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_lstdelone(t_list *lst, void (*del)(void*))
 	if (!lst || !del)
 		return ;
 	del(lst->content);
-	free(lst)
+	free(lst);
 }
 /* void del(void *content)
 {

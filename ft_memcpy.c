@@ -18,7 +18,7 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	char		*d;
 	const char	*s;
 
-	if (!dest || !src)
+	if (!dest && !src)
 		return (NULL);
 	i = 0;
 	d = (char *)dest;
@@ -28,11 +28,11 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 		d[i] = s[i];
 		i++;
 	}
-	return (dest)
+	return (dest);
 }
-/*int main()
+/* int main()
 {
 	char str[100] = "hamza";
 	ft_memcpy(((void*)0), ((void*)0), 3);
 	printf("%s\n", str);
-}*/
+} */
