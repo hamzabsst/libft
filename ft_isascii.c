@@ -1,41 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hbousset <hbousset@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/26 09:27:05 by hbousset          #+#    #+#             */
-/*   Updated: 2024/10/31 11:02:06 by hbousset         ###   ########.fr       */
+/*   Created: 2024/10/22 16:43:27 by hbousset          #+#    #+#             */
+/*   Updated: 2024/10/31 11:01:58 by hbousset         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+int	ft_isascii(int c)
 {
-	size_t		i;
-	const char	*src;
-
-	src = (char *)s;
-	i = 0;
-	while (i < n)
+	if ((c >= 0 && c < 128))
 	{
-		if (src[i] == c)
-		{
-			return ((char *)&src[i]);
-		}
-		i++;
+		return (1);
 	}
-	return (NULL);
+	return (0);
 }
-/*#include <stdio.h>
-#include <string.h>
-int main()
-{
-	const char str[] = "abdo";
-	char c = 'd';
-	char *result;
-	result = ft_memchr(str, c, 2);
-	printf("%s", result);
-}*/

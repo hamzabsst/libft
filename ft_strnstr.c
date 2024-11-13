@@ -1,39 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hbousset <hbousset@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/28 14:22:08 by hbousset          #+#    #+#             */
-/*   Updated: 2024/10/29 21:52:26 by hbousset         ###   ########.fr       */
+/*   Created: 2024/10/23 14:47:04 by hbousset          #+#    #+#             */
+/*   Updated: 2024/11/12 23:53:48 by hbousset         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	char	*substr;
-	size_t	size;
 	size_t	i;
+	size_t	j;
 
-	if (start >= ft_strlen(s))
-		return (ft_strdup(""));
-	size = ft_strlen(s) - start;
-	substr = (char *)malloc(len * sizeof(char) + 1);
-	if (!substr)
-		return (NULL);
 	i = 0;
-	while (len > i && s[start + i])
+	j = 0;
+	if (little[j] == '\0')
+		return ((char *)big);
+	while (big[i] && i < len)
 	{
-		substr[i] = s[start + i];
+		while (big[i + j] && little[j] && i + j < len
+			&& big[i + j] == little[j])
+			j++;
+		if (little[j] == '\0')
+			return ((char *)big + i);
 		i++;
+		j = 0;
 	}
-	substr[i] = '\0';
-	return (substr);
+	return (NULL);
 }
 /*int main()
 {
-	printf("%s",ft_substr("hamza is him", 5, 3));
+	char *find = "eat";
+	char *str = "sweater";
+	printf("%s", ft_strnstr(str, find, 2));
+
 }*/

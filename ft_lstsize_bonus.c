@@ -6,7 +6,7 @@
 /*   By: hbousset <hbousset@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/03 17:19:59 by hbousset          #+#    #+#             */
-/*   Updated: 2024/11/10 12:44:42 by hbousset         ###   ########.fr       */
+/*   Updated: 2024/11/12 23:51:20 by hbousset         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	ft_lstsize(t_list *lst)
 {
-	int count;
-	t_list *current;
+	int		count;
+	t_list	*current;
 
 	count = 0;
 	current = lst;

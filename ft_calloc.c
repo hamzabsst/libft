@@ -16,10 +16,12 @@ void	*ft_calloc(size_t nmemb, size_t size)
 {
 	char	*results;
 
-	results = (void *)malloc(nmemb * size * sizeof(char));
+/* 	if (nmemb != 0 && size > SIZE_MAX / nmemb)
+		return (NULL); */
+	results = malloc(nmemb * size);
 	if (!results)
 		return (NULL);
-	ft_bzero (results, nmemb * size);
+	ft_bzero(results, nmemb * size);
 	return (results);
 }
 /*#include <stdio.h>
@@ -27,12 +29,12 @@ void	*ft_calloc(size_t nmemb, size_t size)
 int main()
 {
 	size_t nmemb = 10;
-	size_t size = 6;
+	size_t size = sizeof(int);
 	int *arr;
 	size_t i = 0;
 
 	arr = (int *)ft_calloc(nmemb, size);
-	while (i < size)
+	while (i < nmemb)
 	{
 		printf("%d ", arr[i]);
 		i++;

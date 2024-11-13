@@ -1,29 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hbousset <hbousset@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/23 14:46:54 by hbousset          #+#    #+#             */
-/*   Updated: 2024/10/31 11:02:54 by hbousset         ###   ########.fr       */
+/*   Created: 2024/10/23 22:21:55 by hbousset          #+#    #+#             */
+/*   Updated: 2024/10/31 11:02:25 by hbousset         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+char	*ft_strchr(const char *s, int c)
 {
 	int	i;
 
 	i = 0;
-	while (s1[i] == s2[i] && s1[i] && s2[i] && i < n)
+	while (s[i])
 	{
+		if (s[i] == (char)c)
+			return ((char *)s + i);
 		i++;
 	}
-	return (s1[i] - s2[i]);
+	if (c == '\0')
+		return ((char *)s + i);
+	return (NULL);
 }
-/*int main()
+/*#include <stdio.h>
+#include <string.h>
+int main()
 {
-	printf("%d", ft_strncmp("12345", "12344", 3));
+	int z;
+	char *c = strchr("opaeee", z);
+	printf("%s", c);
+	printf("\n");
+	char *d = ft_strchr("opaeee", z);
+	printf("%s", d);
 }*/

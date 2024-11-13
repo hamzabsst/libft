@@ -1,35 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hbousset <hbousset@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/22 23:40:19 by hbousset          #+#    #+#             */
-/*   Updated: 2024/11/03 15:58:37 by hbousset         ###   ########.fr       */
+/*   Created: 2024/10/23 14:46:43 by hbousset          #+#    #+#             */
+/*   Updated: 2024/11/13 11:34:41 by hbousset         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *s, int c, size_t n)
+int	ft_atoi(const char	*str)
 {
-	size_t			i;
-	unsigned char	*ptr;
+	int	i;
+	int	result;
+	int	sign;
 
 	i = 0;
-	ptr = (char *)s;
-	while (i < n)
+	result = 0;
+	sign = 1;
+	while (str[i] && (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13)))
+		i++;
+	if (str[i] == '-' || str[i] == '+')
 	{
-		ptr[i] = (unsigned char)c;
+		if (str[i] == '-')
+			sign = -1;
 		i++;
 	}
-	return (s);
+	while (str[i] && (str[i] >= '0' && str[i] <= '9'))
+	{
+		result = result * 10 + (str[i] - 48);
+		i++;
+	}
+	return (result * sign);
 }
-/* int main()
+/*int main()
 {
-	char str[15] = "jfjfnfg";
-	//memset(str + 2, '.', 8*sizeof(char));
-	ft_memset(str + 2, -158, 8*sizeof(char));
-	printf("%s", str);z
-} */
+	char *str = "  		  -12345";
+	int c = ft_atoi(str);
+	printf("%d", c);
+}*/

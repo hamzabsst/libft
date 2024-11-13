@@ -1,18 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstmap.c                                        :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbousset <hbousset@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hbousset <hbousset@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/03 17:19:55 by hbousset          #+#    #+#             */
-/*   Updated: 2024/11/03 17:24:10 by hbousset         ###   ########.fr       */
+/*   Created: 2024/10/22 16:43:47 by hbousset          #+#    #+#             */
+/*   Updated: 2024/10/31 11:01:37 by hbousset         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *))
+int	ft_isdigit(int c)
 {
-
+	if ((c >= '0' && c <= '9'))
+	{
+		return (1);
+	}
+	return (0);
 }

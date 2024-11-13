@@ -1,18 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstiter.c                                       :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hbousset <hbousset@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/03 17:19:50 by hbousset          #+#    #+#             */
-/*   Updated: 2024/11/03 17:21:31 by hbousset         ###   ########.fr       */
+/*   Created: 2024/10/24 17:44:32 by hbousset          #+#    #+#             */
+/*   Updated: 2024/11/12 11:55:55 by hbousset         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_lstsize(t_list *lst)
+void	ft_bzero(void *s, size_t n)
 {
-	
+	size_t	i;
+	char	*ptr;
+
+	i = 0;
+	ptr = (char *)s;
+	while (i < n)
+	{
+		ptr[i] = 0;
+		i++;
+	}
 }
+/*int main ()
+{
+	char str[15] = "hamza is trying";
+	ft_bzero(str + 2, 2*sizeof(char));
+	printf("%s\n", str);
+}*/

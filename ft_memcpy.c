@@ -1,22 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hbousset <hbousset@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/22 16:43:27 by hbousset          #+#    #+#             */
-/*   Updated: 2024/10/31 11:01:58 by hbousset         ###   ########.fr       */
+/*   Created: 2024/10/24 18:12:32 by hbousset          #+#    #+#             */
+/*   Updated: 2024/10/31 11:02:12 by hbousset         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isascii(int c)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	if ((c >= 0 && c <= 128))
+	size_t		i;
+	char		*d;
+	const char	*s;
+
+	if (!dest || !src)
+		return (NULL);
+	i = 0;
+	d = (char *)dest;
+	s = (const char *)src;
+	while (i < n)
 	{
-		return (1);
+		d[i] = s[i];
+		i++;
 	}
-	return (0);
+	return (dest)
 }
+/*int main()
+{
+	char str[100] = "hamza";
+	ft_memcpy(((void*)0), ((void*)0), 3);
+	printf("%s\n", str);
+}*/

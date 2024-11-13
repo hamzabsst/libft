@@ -1,41 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hbousset <hbousset@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/23 14:47:04 by hbousset          #+#    #+#             */
-/*   Updated: 2024/11/04 09:51:52 by hbousset         ###   ########.fr       */
+/*   Created: 2024/10/22 23:40:19 by hbousset          #+#    #+#             */
+/*   Updated: 2024/11/11 11:07:10 by hbousset         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(char *big, const char *little, size_t len)
+void	*ft_memset(void *s, int c, size_t n)
 {
-	int	i;
-	int	j;
+	size_t			i;
+	unsigned char	*ptr;
 
 	i = 0;
-	j = 0;
-	if (little[j] == '\0')
-		return (big);
-	while (big[i])
+	ptr = (unsigned char *)s;
+	while (i < n)
 	{
-		while (big[i + j] && little[j] && big[i + j] && i + j < len)
-			j++;
-		if (little[j] == '\0')
-			return (big + i);
+		ptr[i] = (unsigned char)c;
 		i++;
-		j = 0;
 	}
-	return (0);
+	return (s);
 }
-/*int main()
+/* int main()
 {
-	char *find = "eat";
-	char *str = "sweater";
-	printf("%s", ft_strnstr(str, find, 2));
-
-}*/
+	char str[15] = "jfjfnfg";
+	//memset(str + 2, '.', 8*sizeof(char));
+	ft_memset(str + 2, -158, 8*sizeof(char));
+	printf("%s", str);z
+} */

@@ -6,7 +6,7 @@
 /*   By: hbousset <hbousset@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 10:47:59 by hbousset          #+#    #+#             */
-/*   Updated: 2024/11/03 15:17:34 by hbousset         ###   ########.fr       */
+/*   Updated: 2024/11/12 23:50:36 by hbousset         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,13 @@ int	digitcounter(int n)
 	int	i;
 
 	i = 0;
-	if (n < 0)
-	{
+	if (n <= 0)
 		i++;
-		n = -n;
-	}
-	while (n > 9)
+	while (n != 0)
 	{
 		n = n / 10;
 		i++;
 	}
-	i++;
 	return (i);
 }
 
@@ -36,26 +32,26 @@ char	*ft_itoa(int n)
 	int		i;
 	char	*res;
 	int		size;
+	long	nb;
 
-	size = digitcounter(n);
-	res = malloc(size * sizeof(char) + 1);
+	nb = n;
+	size = digitcounter(nb);
+	res = malloc((size + 1) * sizeof(char));
 	if (!res)
 		return (NULL);
 	res[size] = '\0';
 	i = size - 1;
-	if (n == 0)
+	if (nb == 0)
 		res[0] = '0';
-	if (n < 0)
+	if (nb < 0)
 	{
 		res[0] = '-';
-		if (n == -2147483648)
-			return ("-2147483648");
-		n = -n;
+		nb = -nb;
 	}
-	while (n > 0)
+	while (nb > 0)
 	{
-		res[i--] = n % 10 + '0';
-		n = n / 10;
+		res[i--] = nb % 10 + '0';
+		nb = nb / 10;
 	}
 	return (res);
 }

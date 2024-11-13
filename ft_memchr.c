@@ -1,38 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hbousset <hbousset@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/23 22:51:24 by hbousset          #+#    #+#             */
-/*   Updated: 2024/10/31 11:02:58 by hbousset         ###   ########.fr       */
+/*   Created: 2024/10/26 09:27:05 by hbousset          #+#    #+#             */
+/*   Updated: 2024/10/31 11:02:06 by hbousset         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(char *s, int c)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	int	size;
+	size_t				i;
+	const unsigned char	*src;
 
-	size = ft_strlen(s) - 1;
-	while (s[size])
+	src = (const unsigned char *)s;
+	i = 0;
+	while (i < n)
 	{
-		if (s[size] == c)
+		if (src[i] == (unsigned char)c)
 		{
-			return ((char *)s + size);
+			return ((void *)&src[i]);
 		}
-		size--;
+		i++;
 	}
-	return (0);
+	return (NULL);
 }
-/*int main()
+/*#include <stdio.h>
+#include <string.h>
+int main()
 {
-	char *c = strrchr("ahamzaop", 'a');
-	printf("%s", c);
-	printf("\n");
-	char *d = ft_strrchr("ahamzaop", 'a');
-	printf("%s", d);
-
+	const char str[] = "abdo";
+	char c = 'd';
+	char *result;
+	result = ft_memchr(str, c, 2);
+	printf("%s", result);
 }*/

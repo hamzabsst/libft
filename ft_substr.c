@@ -1,33 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hbousset <hbousset@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/24 17:44:32 by hbousset          #+#    #+#             */
-/*   Updated: 2024/10/27 10:20:22 by hbousset         ###   ########.fr       */
+/*   Created: 2024/10/28 14:22:08 by hbousset          #+#    #+#             */
+/*   Updated: 2024/11/12 23:52:15 by hbousset         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
+	char	*substr;
 	size_t	i;
-	char	*ptr;
 
+	if (!s)
+		return (NULL);
+	if (start >= ft_strlen(s))
+		return (ft_strdup(""));
+	if (len > ft_strlen(s) - start)
+		len = ft_strlen(s) - start;
+	substr = (char *)malloc(len * sizeof(char) + 1);
+	if (!substr)
+		return (NULL);
 	i = 0;
-	ptr = (char *)s;
-	while (i < n)
+	while (len > i && s[start + i])
 	{
-		*ptr = 0;
+		substr[i] = s[start + i];
 		i++;
 	}
+	substr[i] = '\0';
+	return (substr);
 }
-/*int main ()
+/*int main()
 {
-	char str[15] = "hamza is trying";
-	ft_bzero(str + 2, 2*sizeof(char));
-	printf("%s\n", str);
+	printf("%s",ft_substr("hamza is him", 5, 3));
 }*/
