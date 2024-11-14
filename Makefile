@@ -6,7 +6,7 @@
 #    By: hbousset <hbousset@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/01 09:38:43 by hbousset          #+#    #+#              #
-#    Updated: 2024/11/13 15:25:05 by hbousset         ###   ########.fr        #
+#    Updated: 2024/11/14 13:59:12 by hbousset         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,35 +25,3 @@ SRCSB =	ft_lstnew.c ft_lstadd_front.c \
 		ft_lstadd_back.c ft_lstdelone.c \
 		ft_lstclear.c ft_lstiter.c \
 		ft_lstmap.c\
-
-OBJS = ${SRCS:.c=.o}
-
-OBJSB = ${SRCSB:.c=.o}
-
-NAME = libft.a
-
-LIBC = ar rcs
-
-CC = cc
-
-CFLAGS = -Wall -Wextra -Werror
-
-RM = rm -f
-
-all: ${NAME}
-
-${NAME}: ${OBJS}
-	${LIBC} ${NAME} ${OBJS}
-
-bonus: ${OBJS} ${OBJSB}
-	${LIBC} ${NAME} ${OBJS} ${OBJSB}
-
-clean:
-	${RM} ${OBJS} ${OBJSB}
-
-fclean: clean
-	${RM} ${NAME}
-
-re: fclean all
-
-.PHONY: all bonus clean fclean re

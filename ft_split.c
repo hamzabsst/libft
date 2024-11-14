@@ -6,13 +6,13 @@
 /*   By: hbousset <hbousset@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 14:08:13 by hbousset          #+#    #+#             */
-/*   Updated: 2024/11/13 11:39:07 by hbousset         ###   ########.fr       */
+/*   Updated: 2024/11/14 13:58:40 by hbousset         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	count_word(char const *s, char c)
+static int	count_word(char const *s, char c)
 {
 	int	i;
 	int	counter;
@@ -28,50 +28,69 @@ int	count_word(char const *s, char c)
 	return (counter);
 }
 
-char	*ft_strndup(const char *s, int size)
+static void	ft_free(char **str)
 {
-	char	*copy;
+	int	i;
 
-	copy = malloc(size + 1);
-	if (!copy)
-		return (NULL);
-	ft_strlcpy(copy, s, size + 1);
-	return (copy);
+	i = 0;
+	if (!str)
+		return ;
+	while (str[i])
+	{
+		free (str[i]);
+		i++;
+	}
+	free(str);
+}
+
+static int	sizeof_string(const char *str, char c, int *start)
+{
+	int	size;
+
+	size = 0;
+	while (str[*start] == c && str[*start])
+		(*start)++;
+	while (str[*start] != c && str[*start])
+	{
+		size++;
+		(*start)++;
+	}
+	return (size);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	char	**res;
-	int		i;
-	int		index;
+	char	**results;
+	int		words;
 	int		start;
+	int		i;
+	int		size;
 
-	res = malloc((count_word(s, c) + 1) * sizeof(char *));
-	if (!s || !(res))
-		return (NULL);
+	start = 0;
 	i = 0;
-	index = 0;
-	while (s[i])
+	words = count_word(s, c);
+	results = (char **)malloc(sizeof(char *) * (words + 1));
+	if (!results)
+		return (NULL);
+	while (i < words)
 	{
-		while (s[i] == c)
-			i++;
-		start = i;
-		while (s[i] && s[i] != c)
-			i++;
-		if (i > start)
+		size = sizeof_string(s, c, &start);
+		results[i] = malloc(sizeof(char) * size + 1);
+		if (!results[i])
 		{
-			res[index] = ft_strndup(s + start, i - start);
-			index++;
+			ft_free(results);
+			return (NULL);
 		}
+		ft_strlcpy(results[i++], s + (start - size), size + 1);
 	}
-	res[index] = NULL;
-	return (res);
+	results[i] = NULL;
+	return (results);
 }
-/*#include <stdio.h>
+/* #include <stdio.h>
 int	main(void)
 {
 	int		i;
-	char	**words = ft_split("pe pe p epe", ' ');
+	char	**words = ft_split("hi ,come ,to ,bocal", ',');
 
 	i = 0;
 	while (words[i])
@@ -82,4 +101,4 @@ int	main(void)
 	}
 	free(words);
 	return (0);
-}*/
+} */

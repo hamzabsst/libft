@@ -12,27 +12,29 @@
 
 #include "libft.h"
 
-void	*ft_calloc(size_t nmemb, size_t size)
+void	*ft_calloc(size_t count, size_t size)
 {
-	char	*results;
+	void	*results;
 
-	results = malloc(nmemb * size);
+	if (size && count && (count * size) / size != count)
+		return (NULL);
+	results = malloc(count * size);
 	if (!results)
 		return (NULL);
-	ft_bzero(results, nmemb * size);
+	ft_bzero(results, count * size);
 	return (results);
 }
 /*#include <stdio.h>
 #include <stdlib.h>
 int main()
 {
-	size_t nmemb = 10;
+	size_t count = 10;
 	size_t size = sizeof(int);
 	int *arr;
 	size_t i = 0;
 
-	arr = (int *)ft_calloc(nmemb, size);
-	while (i < nmemb)
+	arr = (int *)ft_calloc(count, size);
+	while (i < count)
 	{
 		printf("%d ", arr[i]);
 		i++;
@@ -40,5 +42,5 @@ int main()
 	free(arr);
 	return 0;
 }*/
-/* 	if (nmemb != 0 && size > SIZE_MAX / nmemb)
+/* 	if (count != 0 && size > SIZE_MAX / count)
 		return (NULL); */

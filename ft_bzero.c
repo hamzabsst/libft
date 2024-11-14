@@ -6,7 +6,7 @@
 /*   By: hbousset <hbousset@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 17:44:32 by hbousset          #+#    #+#             */
-/*   Updated: 2024/11/12 11:55:55 by hbousset         ###   ########.fr       */
+/*   Updated: 2024/11/14 12:20:19 by hbousset         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-	size_t	i;
-	char	*ptr;
+	size_t			i;
+	unsigned char	*ptr;
 
 	i = 0;
-	ptr = (char *)s;
+	ptr = (unsigned char *)s;
 	while (i < n)
 	{
 		ptr[i] = 0;

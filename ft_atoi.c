@@ -6,39 +6,53 @@
 /*   By: hbousset <hbousset@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 14:46:43 by hbousset          #+#    #+#             */
-/*   Updated: 2024/11/13 11:34:41 by hbousset         ###   ########.fr       */
+/*   Updated: 2024/11/14 11:09:35 by hbousset         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char	*str)
+static char	*skip(const char *str)
 {
 	int	i;
-	int	result;
-	int	sign;
 
 	i = 0;
+	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
+		i++;
+	return ((char *)str + i);
+}
+
+int	ft_atoi(const char	*str)
+{
+	long	result;
+	int		sign;
+	long	max;
+	char	*string;
+
 	result = 0;
 	sign = 1;
-	while (str[i] && (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13)))
-		i++;
-	if (str[i] == '-' || str[i] == '+')
-	{
-		if (str[i] == '-')
+	max = 0;
+	string = skip(str);
+	if (*string == '-' || *string == '+')
+		if (*string++ == '-')
 			sign = -1;
-		i++;
-	}
-	while (str[i] && (str[i] >= '0' && str[i] <= '9'))
+	while (*string >= '0' && *string <= '9')
 	{
-		result = result * 10 + (str[i] - 48);
-		i++;
+		result = result * 10 + *string - 48;
+		if (result < max)
+		{
+			if (sign == -1)
+				return (0);
+			return (-1);
+		}
+		string++;
+		max = result;
 	}
-	return (result * sign);
+	return ((int)result * sign);
 }
-/*int main()
+/* int main()
 {
-	char *str = "  		  -12345";
-	int c = ft_atoi(str);
-	printf("%d", c);
-}*/
+	char *str = "-11111111";
+	printf("%d\n", ft_atoi(str));
+	printf("%d\n", atoi(str));
+} */

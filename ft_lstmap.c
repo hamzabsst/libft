@@ -6,7 +6,7 @@
 /*   By: hbousset <hbousset@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 12:43:23 by hbousset          #+#    #+#             */
-/*   Updated: 2024/11/13 15:23:18 by hbousset         ###   ########.fr       */
+/*   Updated: 2024/11/14 12:33:19 by hbousset         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,19 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	t_list	*new_lst;
 	t_list	*new_node;
+	void	*new_content;
 
 	if (!lst || !f)
 		return (NULL);
 	new_lst = NULL;
 	while (lst)
 	{
-		new_node = ft_lstnew(f(lst->content));
+		new_content = f(lst->content);
+		new_node = ft_lstnew(new_content);
 		if (!new_node)
 		{
+			if (del)
+				del(new_content);
 			ft_lstclear(&new_lst, del);
 			return (NULL);
 		}
@@ -33,6 +37,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	}
 	return (new_lst);
 }
+
 /* void	*duplicate_content(void *content)
 {
 	return (ft_strdup((char *)content));

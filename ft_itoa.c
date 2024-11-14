@@ -6,13 +6,13 @@
 /*   By: hbousset <hbousset@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 10:47:59 by hbousset          #+#    #+#             */
-/*   Updated: 2024/11/12 23:50:36 by hbousset         ###   ########.fr       */
+/*   Updated: 2024/11/14 11:19:43 by hbousset         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	digitcounter(int n)
+static int	digitcounter(int n)
 {
 	int	i;
 
