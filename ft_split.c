@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbousset <hbousset@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hbousset < hbousset@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 14:08:13 by hbousset          #+#    #+#             */
-/*   Updated: 2024/11/14 13:58:40 by hbousset         ###   ########.fr       */
+/*   Updated: 2024/11/23 18:50:03 by hbousset         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,19 +28,18 @@ static int	count_word(char const *s, char c)
 	return (counter);
 }
 
-static void	ft_free(char **str)
+static void	*ft_free(char **str, int index)
 {
 	int	i;
 
 	i = 0;
-	if (!str)
-		return ;
-	while (str[i])
+	while (i < index)
 	{
 		free (str[i]);
 		i++;
 	}
 	free(str);
+	return (NULL);
 }
 
 static int	sizeof_string(const char *str, char c, int *start)
@@ -68,6 +67,8 @@ char	**ft_split(char const *s, char c)
 
 	start = 0;
 	i = 0;
+	if (!s)
+		return (NULL);
 	words = count_word(s, c);
 	results = (char **)malloc(sizeof(char *) * (words + 1));
 	if (!results)
@@ -77,10 +78,7 @@ char	**ft_split(char const *s, char c)
 		size = sizeof_string(s, c, &start);
 		results[i] = malloc(sizeof(char) * size + 1);
 		if (!results[i])
-		{
-			ft_free(results);
-			return (NULL);
-		}
+			return (ft_free(results, i));
 		ft_strlcpy(results[i++], s + (start - size), size + 1);
 	}
 	results[i] = NULL;

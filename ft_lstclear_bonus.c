@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*   ft_lstclear_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbousset <hbousset@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hbousset < hbousset@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/03 17:19:44 by hbousset          #+#    #+#             */
-/*   Updated: 2024/11/14 11:20:53 by hbousset         ###   ########.fr       */
+/*   Updated: 2024/11/23 18:44:30 by hbousset         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_lstclear(t_list **lst, void (*del)(void*))
 	t_list	*current;
 	t_list	*temp;
 
-	if (!*lst || !del)
+	if (!lst || !del)
 		return ;
 	current = *lst;
 	while (current)

@@ -14,29 +14,30 @@
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char	*str1;
-	char	*str2;
 	char	*res;
 	size_t	i;
 	size_t	j;
 
-	str1 = (char *)s1;
-	str2 = (char *)s2;
-	res = malloc((ft_strlen(str1) + ft_strlen(str2)) * sizeof(char) + 1);
+	if (!s1 || !s2)
+		return (NULL);
+	res = malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char));
 	if (!res)
 		return (NULL);
 	i = 0;
-	j = 0;
-	while (i < ft_strlen(str1))
+	while (i < ft_strlen(s1))
 	{
-		res[i] = str1[i];
+		res[i] = s1[i];
 		i++;
 	}
-	while (i < ft_strlen(str1) + ft_strlen(str2))
-		res[i++] = str2[j++];
+	j = 0;
+	while (j < ft_strlen(s2))
+	{
+		res[i++] = s2[j++];
+	}
 	res[i] = '\0';
 	return (res);
 }
+
 /*int main()
 {
 	char *s1 = "hamza ";
