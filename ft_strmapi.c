@@ -6,7 +6,7 @@
 /*   By: hbousset < hbousset@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 10:11:14 by hbousset          #+#    #+#             */
-/*   Updated: 2024/11/23 18:37:29 by hbousset         ###   ########.fr       */
+/*   Updated: 2024/11/25 18:18:03 by hbousset         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	size_t	size;
 	int		i;
 
-	if(!s)
-		return(NULL);
+	if (!s)
+		return (NULL);
 	size = ft_strlen(s);
 	res = malloc(size + 1);
 	if (!s || !res)

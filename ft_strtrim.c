@@ -6,7 +6,7 @@
 /*   By: hbousset <hbousset@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 14:21:13 by hbousset          #+#    #+#             */
-/*   Updated: 2024/10/29 12:00:29 by hbousset         ###   ########.fr       */
+/*   Updated: 2024/11/25 23:11:23 by hbousset         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 	size_t	len;
 	size_t	i;
 
+	if (!s1)
+		return (NULL);
 	len = ft_strlen(s1);
 	i = 0;
 	while (s1[i] && ft_strchr(set, s1[i]))

@@ -1,15 +1,3 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: hbousset < hbousset@student.42.fr>         +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/11/01 09:38:43 by hbousset          #+#    #+#              #
-#    Updated: 2024/11/24 13:25:57 by hbousset         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
 NAME = libft.a
 
 SRCS =	ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c \
@@ -47,16 +35,17 @@ ${NAME}: ${OBJS}
 
 bonus: ${OBJB}
 	${LIBC} ${NAME} ${OBJB}
+	@touch bonus
 
-%.o: %.c
+%.o: %.c libft.h
 	${CC} ${CFLAGS} -c $< -o $@
 
 clean:
-	${RM} ${OBJS} ${OBJB}
+	${RM} ${OBJS} ${OBJB} bonus
 
 fclean: clean
 	${RM} ${NAME}
 
 re: fclean all
 
-.PHONY: all bonus clean fclean re
+.PHONY: clean
