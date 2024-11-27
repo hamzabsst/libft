@@ -35,13 +35,12 @@ ${NAME}: ${OBJS}
 
 bonus: ${OBJB}
 	${LIBC} ${NAME} ${OBJB}
-	@touch bonus
 
 %.o: %.c libft.h
 	${CC} ${CFLAGS} -c $< -o $@
 
 clean:
-	${RM} ${OBJS} ${OBJB} bonus
+	${RM} ${OBJS} ${OBJB}
 
 fclean: clean
 	${RM} ${NAME}
